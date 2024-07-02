@@ -1,0 +1,32 @@
+﻿<mah:MetroWindow x:Class="TheEncryptKeeper4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Views="clr-namespace:TheEncryptKeeper4.Views"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                 Dialog:DialogParticipation.Register="{Binding}"
+        mc:Ignorable="d"
+        Title="EncryptKeeper" Height="500" Width="600">
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="New Entry" Command="{Binding SelectEntryViewCommand}"/>
+            <MenuItem Header="Browse Entries" Command ="{Binding SelectManageViewCommand}"/>
+        </Menu>
+
+        <WrapPanel DockPanel.Dock="Bottom" Width="Auto" Height="30" Background="{DynamicResource MahApps.Brushes.Accent}">
+            <TextBlock x:Name="ActionMessage" Text="" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <WrapPanel HorizontalAlignment="Right">
+                <Label x:Name="DarkModeLbl" Content="Dark Mode" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <mah:ToggleSwitch Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Toggled="ToggleSwitch_Toggled"/>
+            </WrapPanel>
+        </WrapPanel>
+
+        <mah:TransitioningContentControl Content="{Binding SelectedVM}">
+
+        </mah:TransitioningContentControl>
+
+    </DockPanel>
+</mah:MetroWindow>
