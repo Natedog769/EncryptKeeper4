@@ -9,7 +9,7 @@ namespace TheEncryptKeeper4.Services
 {
     public interface IJSONService
     {
-        void SaveNewEntry(LoginEntry login);
+        bool SaveNewEntry(LoginEntry login);
 
         void SaveChangedList(IList<LoginEntry> modifiedList);
 

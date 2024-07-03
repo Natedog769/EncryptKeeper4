@@ -12,6 +12,17 @@
         private const string FileName = @"PWSheet.JSON";
 
         public LoginEntry LoginModel { get; set; } = new LoginEntry();
+
+        private string resultMessage;
+        public string ResultMessage
+        {
+            get => resultMessage;
+            set
+            {
+                resultMessage = value;
+                OnPropertyChanged(nameof(ResultMessage));
+            }
+        }
         
         public ICommand SaveNewEntryCommand { get; private set; }
         public ICommand ClearInputCommand { get; private set; }
@@ -29,9 +40,17 @@
 
         public void SaveNewEntry(object parameter)
         {
-            jsonService.SaveNewEntry(LoginModel);
+            bool result = jsonService.SaveNewEntry(LoginModel);
+            if (result)
+            {
+                ResultMessage = "New Entry Saved";
+                LoginModel.ClearValues();
+            }
+            else
+            {
+                ResultMessage = "An Error occurred when saving the new entry";
+            }
 
-            LoginModel.ClearValues();
         }
 
         public void ClearInputs(object parameter)

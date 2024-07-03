@@ -27,11 +27,25 @@ namespace TheEncryptKeeper4.Services
             this.encryptor = encryptor;
         }
 
-        public void SaveNewEntry(LoginEntry newEntry)
+        /// <summary>
+        /// This returns a bool, True for success, false for any error that occurred
+        /// </summary>
+        /// <param name="newEntry"></param>
+        /// <returns></returns>
+        public bool SaveNewEntry(LoginEntry newEntry)
         {
-            LoginList.Add(newEntry);
+            try
+            {
+                LoginList.Add(newEntry);
 
-            SaveJSONData(LoginList);
+                SaveJSONData(LoginList);
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
         }
 
         public void SaveChangedList(IList<LoginEntry> modifiedList)

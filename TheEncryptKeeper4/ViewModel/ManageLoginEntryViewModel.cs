@@ -66,7 +66,7 @@ namespace TheEncryptKeeper4.ViewModel
 
         public void LoadList(object parameter = null)
         {
-            LoginList = jsonService.GetLoginList();
+            LoginList = jsonService.GetLoginList().OrderBy(e => e.Website).ToList();
         }
 
         public void GetDisplayedList()
@@ -101,7 +101,8 @@ namespace TheEncryptKeeper4.ViewModel
             }
 
             jsonService.SaveChangedList(LoginList);
-            LoadList();
+
+            GetDisplayedList();
         }
 
     }
