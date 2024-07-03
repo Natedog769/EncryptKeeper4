@@ -40,11 +40,11 @@
                FontSize="13" 
                VerticalAlignment="Center"
                HorizontalAlignment="Center" Content="{Binding ResultMessage}"/>
-        
-        <Button Name="ResetBtn" Content="Reset"
+
+        <Button Name="ResetBtn" Content="Reset" FontSize="20"
                 Command="{Binding ClearInputCommand}"
                 Margin="10" Grid.Row="6"/>
-        <Button Name="SaveBtn" Content="Add"
+        <Button Name="SaveBtn" Content="Add" FontSize="20"
                 Command="{Binding SaveNewEntryCommand}"
                 Margin="10" Grid.Row="6" Grid.Column="1"/>
 
