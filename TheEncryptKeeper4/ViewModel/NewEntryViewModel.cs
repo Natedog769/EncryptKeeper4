@@ -36,6 +36,8 @@
 
             SaveNewEntryCommand = new RelayCommand(SaveNewEntry);
             ClearInputCommand = new RelayCommand(ClearInputs);
+
+            ClearMessage();
         }
 
         public void SaveNewEntry(object parameter)
@@ -56,7 +58,12 @@
         public void ClearInputs(object parameter)
         {
             LoginModel.ClearValues();
+            ResultMessage = "Input cleared";
         }
-                
+
+        public void ClearMessage()
+        {
+            ResultMessage = string.Empty;
+        }
     }
 }

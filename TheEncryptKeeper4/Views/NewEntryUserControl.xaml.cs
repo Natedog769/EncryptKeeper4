@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheEncryptKeeper4.ViewModel;
 
 namespace TheEncryptKeeper4.Views
 {
@@ -23,6 +24,11 @@ namespace TheEncryptKeeper4.Views
         public NewEntryUserControl()
         {
             InitializeComponent();
+        }
+
+        private void ClearMessageEvent(object sender, RoutedEventArgs e)
+        {
+            (DataContext as NewEntryViewModel).ClearMessage();
         }
     }
 }
